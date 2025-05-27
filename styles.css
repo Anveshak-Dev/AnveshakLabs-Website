@@ -1,0 +1,91 @@
+@keyframes pulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes aurora {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.aurora {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle,
+        rgba(74, 122, 150, 0.2) 0%,
+        rgba(46, 87, 107, 0.1) 45%,
+        rgba(28, 54, 67, 0.05) 100%
+    );
+    filter: blur(80px);
+    animation: aurora 15s infinite;
+}
+
+.aurora-2 {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    background: radial-gradient(
+        circle,
+        rgba(99, 127, 107, 0.2) 0%,
+        rgba(65, 84, 70, 0.1) 45%,
+        rgba(40, 52, 43, 0.05) 100%
+    );
+}
+
+.glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.animate-fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ripple-effect {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 0.008) 0%,
+        rgba(255, 255, 255, 0.005) 35%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.4, 0.0, 0.2, 1),
+                opacity 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    z-index: -1;
+    mix-blend-mode: plus-lighter;
+    filter: blur(8px);
+}
+
+body {
+    cursor: none; /* Hide default cursor */
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
